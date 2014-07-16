@@ -8,6 +8,7 @@ AssetManager = require "../../vendor/iki-engine/src/Manager/AssetManager.coffee"
 # Scenes
 PreLoadScene = require "./PreLoad.coffee"
 MainMenuScene = require "./MainMenu.coffee"
+GameScene = require "./Game.coffee"
 
 
 class BootScene extends Scene
@@ -34,6 +35,10 @@ class BootScene extends Scene
         mainMenuScene = new MainMenuScene()
         SceneManager.add "main-menu", mainMenuScene
         mainMenuScene.init()
+
+        gameScene = new GameScene()
+        SceneManager.add "game", gameScene
+        gameScene.init()
 
 
     activate: ->

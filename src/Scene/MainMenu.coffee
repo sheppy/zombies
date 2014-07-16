@@ -7,6 +7,7 @@ class MainMenuScene extends Scene
 
 
     activate: ->
+        SceneManager.activate "game"
 
 
     deactivate: ->
