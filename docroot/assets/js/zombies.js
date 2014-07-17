@@ -51,6 +51,7 @@ BootScene = (function(_super) {
 
   BootScene.prototype.activate = function() {
     var loadAsset;
+    console.log("Loading assets");
     loadAsset = AssetManager.load("assets/manifest/assets-boot.json");
     return loadAsset.then(function() {
       return SceneManager.activate("preload");
@@ -100,9 +101,13 @@ GameScene = (function(_super) {
     return GameScene.__super__.constructor.apply(this, arguments);
   }
 
-  GameScene.prototype.init = function() {};
+  GameScene.prototype.init = function() {
+    return console.log("Game init");
+  };
 
-  GameScene.prototype.activate = function() {};
+  GameScene.prototype.activate = function() {
+    return console.log("Game running");
+  };
 
   GameScene.prototype.deactivate = function() {};
 
@@ -114,11 +119,15 @@ module.exports = GameScene;
 
 
 },{"../../vendor/iki-engine/src/Scene.coffee":11}],3:[function(require,module,exports){
-var MainMenuScene, Scene,
+var GraphicsManager, MainMenuScene, Scene, SceneManager,
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
 Scene = require("../../vendor/iki-engine/src/Scene.coffee");
+
+GraphicsManager = require("../../vendor/iki-engine/src/Manager/GraphicsManager.coffee");
+
+SceneManager = require("../../vendor/iki-engine/src/Manager/SceneManager.coffee");
 
 MainMenuScene = (function(_super) {
   __extends(MainMenuScene, _super);
@@ -144,7 +153,7 @@ MainMenuScene = (function(_super) {
 module.exports = MainMenuScene;
 
 
-},{"../../vendor/iki-engine/src/Scene.coffee":11}],4:[function(require,module,exports){
+},{"../../vendor/iki-engine/src/Manager/GraphicsManager.coffee":8,"../../vendor/iki-engine/src/Manager/SceneManager.coffee":10,"../../vendor/iki-engine/src/Scene.coffee":11}],4:[function(require,module,exports){
 var AssetManager, GraphicsManager, PreLoadScene, Scene, SceneManager,
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -170,6 +179,7 @@ PreLoadScene = (function(_super) {
 
   PreLoadScene.prototype.activate = function() {
     var loadAsset;
+    console.log("Preload running");
     this.bar = {
       background: AssetManager.get("img/ui/loading-bar-bg.png"),
       fill: AssetManager.get("img/ui/loading-bar-fill.png"),

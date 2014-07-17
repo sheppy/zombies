@@ -10,6 +10,7 @@ class PreLoadScene extends Scene
 
 
     activate: ->
+        console.log "Preload running"
         @bar =
             background: AssetManager.get "img/ui/loading-bar-bg.png"
             fill: AssetManager.get "img/ui/loading-bar-fill.png"

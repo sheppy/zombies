@@ -42,6 +42,7 @@ class BootScene extends Scene
 
 
     activate: ->
+        console.log "Loading assets"
         loadAsset = AssetManager.load "assets/manifest/assets-boot.json"
         loadAsset.then -> SceneManager.activate "preload"
 

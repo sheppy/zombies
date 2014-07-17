@@ -2,3 +2,5 @@
 atlassian-ide-plugin.xml
 node_modules
 vendor
+.codio
+.settings

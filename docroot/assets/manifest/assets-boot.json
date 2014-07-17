@@ -1,0 +1,8 @@
+{
+    "root": "assets/",
+    "assets": {
+        "manifests": [
+            {"file": "manifest/assets-game.json"}
+        ],
+    }
+}
