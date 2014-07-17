@@ -1,4 +1,4 @@
-Scene = require "../../../vendor/iki-engine/src/Scene.coffee"
+Scene = require "../../vendor/iki-engine/src/Scene.coffee"
 
 
 class MainMenuScene extends Scene

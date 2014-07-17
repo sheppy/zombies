@@ -24,7 +24,7 @@ class BootScene extends Scene
         InputManager.init GraphicsManager.renderer.canvas
 
         # Set up the scenes
-        @initScenes();
+        @initScenes()
 
 
     initScenes: ->
