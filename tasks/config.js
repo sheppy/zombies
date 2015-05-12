@@ -16,7 +16,8 @@ export default {
         coverage: "./coverage",
         es6: "./src/assets/js",
         js: "./public/assets/js",
-        tasks: "./tasks"
+        tasks: "./tasks",
+        tests: "./tests"
     },
     file: {
         gulpfile: "./gulpfile.js",

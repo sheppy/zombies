@@ -70,7 +70,7 @@ gulp.task("js-test", (cb) => gulp
     }))
     .pipe(plugins.istanbul.hookRequire())
     .on("finish", () => gulp
-        .src(path.join("./test", config.glob.es6), { read: false })
+        .src(path.join(config.dir.tests, config.glob.es6), { read: false })
         .pipe(plugins.plumber())
         .pipe(plugins.mocha({ reporter: "spec" }))
         .pipe(plugins.istanbul.writeReports({
