@@ -1,0 +1,38 @@
+{
+  "esnext": true,
+  "disallowDanglingUnderscores": {
+    "allExcept": [
+      "__proto__",
+      "_",
+      "__filename",
+      "__dirname",
+      "super_",
+      "_exception"
+    ]
+  },
+  "disallowEmptyBlocks": true,
+  "disallowFunctionDeclarations": true,
+  "disallowImplicitTypeConversion": ["numeric", "binary", "string"],
+  "disallowKeywordsOnNewLine": ["else"],
+  "disallowKeywords": ["with"],
+  "disallowMixedSpacesAndTabs": true,
+  "disallowMultipleLineStrings": true,
+  "disallowMultipleVarDecl": "exceptUndefined",
+  "disallowNewlineBeforeBlockStatements": true,
+  "disallowOperatorBeforeLineBreak": ["+", "."],
+  "disallowQuotedKeysInObjects": true,
+  "disallowSpaceAfterObjectKeys": true,
+  "disallowSpaceAfterPrefixUnaryOperators": ["++", "--", "+", "-", "~", "!"],
+  "disallowSpaceBeforePostfixUnaryOperators": ["++", "--"],
+  "disallowSpacesInCallExpression": true,
+  "disallowSpacesInFunctionDeclaration": {
+    "beforeOpeningRoundBrace": true
+  },
+  "requireSpacesInAnonymousFunctionExpression": {
+    "beforeOpeningRoundBrace": true,
+    "beforeOpeningCurlyBrace": true
+  },
+  "requireSpacesInsideObjectBrackets": "all",
+  "disallowTrailingWhitespace": true,
+  "requireBlocksOnNewline": true
+}

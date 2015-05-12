@@ -2,7 +2,5 @@
   "name": "zombies",
   "version": "0.0.0",
   "private": true,
-  "dependencies": {
-    "iki-engine": "https://github.com/sheppy/iki-engine.git"
-  }
+  "dependencies": {}
 }
