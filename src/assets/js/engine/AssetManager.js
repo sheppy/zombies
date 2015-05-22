@@ -34,10 +34,18 @@ class AssetManager {
     }
 
     /**
-     * @param {String} image
+     * @param {String} name
+     * @param {String} url
      */
-    addImage(image) {
-        this._assetQueue.push(image);
+    addImage(name, url) {
+        if (!url) {
+            url = name;
+        }
+
+        this._assetQueue.push({
+            name: name,
+            url: url
+        });
     }
 
     /**
@@ -47,20 +55,24 @@ class AssetManager {
     load(onComplete, onProgress) {
         //var loader = new PIXI.JsonLoader(url);
         // Load images
-        let loader = new PIXI.AssetLoader(this._assetQueue, true);
+        let loader = new PIXI.loaders.Loader();
 
-        if (onComplete) {
-            loader.addEventListener("onComplete", onComplete);
-        }
-
-        if (onProgress) {
-            loader.addEventListener("onProgress", onProgress);
-        }
-
-        loader.load();
+        this._assetQueue.forEach(function (image) {
+            loader.add(image.name, image.url);
+        });
 
         // Clear current queue
         this._assetQueue = [];
+
+        if (onComplete) {
+            loader.on("complete", onComplete);
+        }
+
+        if (onProgress) {
+            loader.on("progress", onProgress);
+        }
+
+        loader.load();
     }
 }
 

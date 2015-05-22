@@ -1,7 +1,7 @@
 import PIXI from "pixi.js";
 import Tile from "./Tile";
 
-class TileMap extends PIXI.DisplayObjectContainer {
+class TileMap extends PIXI.Container {
     constructor() {
         super();
 
@@ -31,9 +31,9 @@ class TileMap extends PIXI.DisplayObjectContainer {
 
         /**
          * @name TileMap#baseTiles
-         * @type {PIXI.DisplayObjectContainer}
+         * @type {PIXI.Container}
          */
-        this.baseTiles = new PIXI.DisplayObjectContainer();
+        this.baseTiles = new PIXI.Container();
 
         /**
          * @name TileMap#baseTileSprite
@@ -77,12 +77,12 @@ class TileMap extends PIXI.DisplayObjectContainer {
      *
      * @param x
      * @param y
-     * @param frameId
+     * @param textureName
      */
-    addTile(x, y, frameId) {
+    addTile(x, y, textureName) {
         let index = this._localToIndex(x, y);
 
-        let tile = new Tile(frameId);
+        let tile = new Tile(textureName);
         tile.tileX = x;
         tile.tileY = y;
         tile.position.x = x * this.tileSize;
@@ -92,9 +92,9 @@ class TileMap extends PIXI.DisplayObjectContainer {
     }
 
     // Note: This removes the tile instance, it might be better to just change its properties
-    changeTile(x, y, frameId, update) {
+    changeTile(x, y, textureName, update) {
         this.baseTiles.removeChild(this.getTile(x, y));
-        this.addTile(x, y, frameId);
+        this.addTile(x, y, textureName);
         if (update) {
             this.renderTilesToSprite();
         }

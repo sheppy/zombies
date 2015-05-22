@@ -1,5 +1,6 @@
 import PIXI from "pixi.js";
 
+import GFX from "../engine/GFX";
 import Scene from "../engine/Scene";
 import AssetManager from "../engine/AssetManager";
 import SceneManager from "../engine/SceneManager";
@@ -13,7 +14,7 @@ import PrototypeMapScene from "./PrototypeMapScene";
  */
 class BootstrapScene extends Scene {
     _init() {
-        SceneManager.instance.stage.setBackgroundColor("#000");
+        GFX.instance.renderer.backgroundColor = 0x000000;
 
         // Add loading text...
         let text = new PIXI.Text("Loading", { font: "50px Arial", fill: "#fff" });
@@ -28,20 +29,19 @@ class BootstrapScene extends Scene {
     }
 
     loadAssets() {
-        AssetManager.instance.addImage("null.png");
-        AssetManager.instance.addImage("tiles.json");
+        AssetManager.instance.addImage("null", "null.png");
+        AssetManager.instance.addImage("assets/tiles/tiles.json");
         AssetManager.instance.load(this.onAssetsLoaded.bind(this), this._onAssetLoad);
     }
 
-    _onAssetLoad(e) {
-        let itemsRemaining = e.content.content.loadCount;
-        let totalItems = e.content.content.assetURLs.length;
-        let percent = (1 - (itemsRemaining / totalItems)) * 100;
-
-        console.log("Loading assets:", percent, itemsRemaining, totalItems);
+    _onAssetLoad(loader) {
+        let itemsRemaining = loader._numToLoad;
+        let percent = loader.progress;
+        //console.log("Loading assets:", percent, itemsRemaining);
     }
 
     onAssetsLoaded() {
+        console.log("Assets have been loaded");
         SceneManager.instance.createScene("prototype-map", PrototypeMapScene);
         SceneManager.instance.goToScene("prototype-map");
     }

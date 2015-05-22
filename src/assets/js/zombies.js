@@ -1,7 +1,7 @@
 import PIXI from "pixi.js";
 
 // Prevent fuzzy scaling on pixels
-PIXI.scaleModes.DEFAULT = PIXI.scaleModes.NEAREST;
+PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
 
 import GFX from "./engine/GFX";
 import Game from "./engine/Game";

@@ -1,4 +1,5 @@
 import Scene from "../engine/Scene";
+import Tile from "../engine/Tile";
 import TileMap from "../engine/TileMap";
 
 /**
@@ -7,7 +8,10 @@ import TileMap from "../engine/TileMap";
  */
 class PrototypeMapScene extends Scene {
     initMap() {
-        this.map = new TileMap();
+        //this.map = new TileMap();
+
+        this.map = new Tile(2);
+
         this.addChild(this.map);
     }
 
@@ -19,8 +23,8 @@ class PrototypeMapScene extends Scene {
         super._onActivate();
 
         this.initMap();
-        this.map.generate();
-        this.renderMap();
+        //this.map.generate();
+        //this.renderMap();
     }
 }
 

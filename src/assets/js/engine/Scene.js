@@ -2,9 +2,9 @@ import PIXI from "pixi.js";
 
 /**
  * @class
- * @extends PIXI.DisplayObjectContainer
+ * @extends PIXI.Container
  */
-class Scene extends PIXI.DisplayObjectContainer {
+class Scene extends PIXI.Container {
 
     /**
      * @constructor

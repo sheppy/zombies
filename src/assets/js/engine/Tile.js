@@ -2,10 +2,8 @@ import PIXI from "pixi.js";
 import Color from "./Color";
 
 class Tile extends PIXI.Sprite {
-    constructor(frameId) {
-        // TODO: Get asset by name from AssetManager
-        // AssetManager.getTexture(...);
-        let texture = PIXI.TextureCache[frameId];
+    constructor(textureName) {
+        let texture = PIXI.utils.TextureCache[textureName];
         super(texture);
 
         // Tile data such as walkable etc
