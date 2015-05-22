@@ -7,7 +7,7 @@ import runSequence from "run-sequence";
 gulp.task("dev", ["test"], callback =>
     runSequence(
         "clean",
-        ["js"],
+        ["html", "js"],
         callback
     )
 );
